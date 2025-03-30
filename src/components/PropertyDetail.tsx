@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import PropertyGallery from "./PropertyGallery";
 import MapComponent from "./Map";
-import { Bed, Bath, ArrowsOutCardinal, Heart, MapPin, Share2, Clock, Tag, BuildingIcon, Check } from "lucide-react";
+import { Bed, Bath, SquareIcon, Heart, MapPin, Share2, Clock, Tag, BuildingIcon, Check } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -107,7 +107,7 @@ export default function PropertyDetail({ property }: PropertyDetailProps) {
             </div>
             
             <div className="flex items-center">
-              <ArrowsOutCardinal className="h-5 w-5 mr-2 text-realestate-blue" />
+              <SquareIcon className="h-5 w-5 mr-2 text-realestate-blue" />
               <div>
                 <span className="font-semibold block">{property.area}</span>
                 <span className="text-sm text-muted-foreground">{property.areaUnit}</span>

@@ -2,7 +2,7 @@
 import { Property } from "@/types/property";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bed, Bath, ArrowsOutCardinal, MapPin, Heart } from "lucide-react";
+import { Bed, Bath, SquareIcon, MapPin, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -83,7 +83,7 @@ export default function PropertyCard({ property, className }: PropertyCardProps)
               <span>{property.bathrooms} {property.bathrooms === 1 ? 'Bath' : 'Baths'}</span>
             </div>
             <div className="flex items-center">
-              <ArrowsOutCardinal className="h-4 w-4 mr-1.5" />
+              <SquareIcon className="h-4 w-4 mr-1.5" />
               <span>{property.area} {property.areaUnit}</span>
             </div>
           </div>

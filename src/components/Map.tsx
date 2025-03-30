@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { Property } from "@/types/property";
 import mapboxgl from 'mapbox-gl';
@@ -210,14 +209,16 @@ export default function MapComponent({
         />
       )}
 
-      <style jsx>{`
+      <style>
+        {`
         .mapboxgl-popup-content {
           padding: 0;
           border-radius: 8px;
           overflow: hidden;
           box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 }

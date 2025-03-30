@@ -9,6 +9,9 @@ import { Plus, Edit } from "lucide-react";
 const Blog = () => {
   const { posts } = useBlog();
   const publishedPosts = posts.filter(post => post.published);
+  
+  console.log("All posts:", posts);
+  console.log("Published posts:", publishedPosts);
 
   return (
     <div className="container mx-auto py-8 px-4">

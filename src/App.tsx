@@ -31,10 +31,10 @@ const App = () => (
             <Route path="/map" element={<MapView />} />
             <Route path="/property/:id" element={<PropertyDetailPage />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/blog/admin" element={<BlogAdmin />} />
             <Route path="/blog/create" element={<BlogCreate />} />
             <Route path="/blog/edit/:id" element={<BlogEdit />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

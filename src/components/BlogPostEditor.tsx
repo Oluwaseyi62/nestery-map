@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBlog } from "@/contexts/BlogContext";
@@ -9,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { ArrowLeft, Save } from "lucide-react";
+import { BlogPost } from "@/types/blog";
 
 interface BlogPostEditorProps {
   mode: "create" | "edit";
@@ -35,7 +35,14 @@ const BlogPostEditor: React.FC<BlogPostEditorProps> = ({ mode }) => {
     if (mode === "edit" && id) {
       const existingPost = getPost(id);
       if (existingPost) {
-        setPostData(existingPost);
+        setPostData({
+          title: existingPost.title,
+          content: existingPost.content,
+          excerpt: existingPost.excerpt,
+          author: existingPost.author,
+          coverImage: existingPost.coverImage || "/placeholder.svg",
+          published: existingPost.published
+        });
       } else {
         navigate("/blog/admin");
       }
@@ -48,7 +55,6 @@ const BlogPostEditor: React.FC<BlogPostEditorProps> = ({ mode }) => {
     const { name, value } = e.target;
     setPostData(prev => ({ ...prev, [name]: value }));
     
-    // Clear error when field is edited
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: "" }));
     }
@@ -91,9 +97,16 @@ const BlogPostEditor: React.FC<BlogPostEditorProps> = ({ mode }) => {
     if (mode === "create") {
       addPost(postData);
       navigate("/blog/admin");
-    } else {
-      updatePost({ ...postData, id: id || "" });
-      navigate(`/blog/${id}`);
+    } else if (id) {
+      const existingPost = getPost(id);
+      if (existingPost) {
+        updatePost({
+          ...postData,
+          id,
+          date: existingPost.date
+        });
+        navigate(`/blog/${id}`);
+      }
     }
   };
 

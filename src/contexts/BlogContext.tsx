@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState } from "react";
 import { BlogPost } from "@/types/blog";
 import { blogPosts as initialBlogPosts } from "@/data/blog-posts";
@@ -23,11 +22,12 @@ export const BlogProvider: React.FC<{ children: React.ReactNode }> = ({ children
       ...post,
       id: Date.now().toString(),
       date: new Date().toISOString().split("T")[0],
+      published: true,
     };
     setPosts([newPost, ...posts]);
     toast({
       title: "Success",
-      description: "Blog post created successfully",
+      description: "Blog post created and published successfully",
     });
   };
 

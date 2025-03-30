@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useBlog } from "@/contexts/BlogContext";
@@ -25,7 +26,7 @@ const BlogPostEditor: React.FC<BlogPostEditorProps> = ({ mode }) => {
     excerpt: "",
     author: "",
     coverImage: "/placeholder.svg",
-    published: false
+    published: true // Set published to true by default
   };
 
   const [postData, setPostData] = useState(defaultPost);

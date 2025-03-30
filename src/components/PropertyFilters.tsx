@@ -61,7 +61,7 @@ export default function PropertyFiltersComponent({ onFilterChange }: PropertyFil
   };
 
   const handleBedroomsChange = (value: string) => {
-    if (value === "") {
+    if (value === "any") {
       const { bedrooms, ...rest } = filters;
       setFilters(rest);
     } else {
@@ -70,7 +70,7 @@ export default function PropertyFiltersComponent({ onFilterChange }: PropertyFil
   };
 
   const handleBathroomsChange = (value: string) => {
-    if (value === "") {
+    if (value === "any") {
       const { bathrooms, ...rest } = filters;
       setFilters(rest);
     } else {
@@ -79,7 +79,7 @@ export default function PropertyFiltersComponent({ onFilterChange }: PropertyFil
   };
 
   const handlePropertyTypeChange = (value: string) => {
-    if (value === "") {
+    if (value === "any") {
       const { propertyType, ...rest } = filters;
       setFilters(rest);
     } else {
@@ -88,7 +88,7 @@ export default function PropertyFiltersComponent({ onFilterChange }: PropertyFil
   };
 
   const handleStatusChange = (value: string) => {
-    if (value === "") {
+    if (value === "any") {
       const { status, ...rest } = filters;
       setFilters(rest);
     } else {
@@ -123,12 +123,12 @@ export default function PropertyFiltersComponent({ onFilterChange }: PropertyFil
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
         <div className="space-y-2">
           <Label htmlFor="bedrooms">Bedrooms</Label>
-          <Select value={filters.bedrooms?.toString() || ""} onValueChange={handleBedroomsChange}>
+          <Select value={filters.bedrooms?.toString() || "any"} onValueChange={handleBedroomsChange}>
             <SelectTrigger id="bedrooms">
               <SelectValue placeholder="Any" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Any</SelectItem>
+              <SelectItem value="any">Any</SelectItem>
               <SelectItem value="1">1+</SelectItem>
               <SelectItem value="2">2+</SelectItem>
               <SelectItem value="3">3+</SelectItem>
@@ -140,12 +140,12 @@ export default function PropertyFiltersComponent({ onFilterChange }: PropertyFil
 
         <div className="space-y-2">
           <Label htmlFor="bathrooms">Bathrooms</Label>
-          <Select value={filters.bathrooms?.toString() || ""} onValueChange={handleBathroomsChange}>
+          <Select value={filters.bathrooms?.toString() || "any"} onValueChange={handleBathroomsChange}>
             <SelectTrigger id="bathrooms">
               <SelectValue placeholder="Any" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Any</SelectItem>
+              <SelectItem value="any">Any</SelectItem>
               <SelectItem value="1">1+</SelectItem>
               <SelectItem value="2">2+</SelectItem>
               <SelectItem value="3">3+</SelectItem>
@@ -156,12 +156,12 @@ export default function PropertyFiltersComponent({ onFilterChange }: PropertyFil
 
         <div className="space-y-2">
           <Label htmlFor="property-type">Property Type</Label>
-          <Select value={filters.propertyType || ""} onValueChange={handlePropertyTypeChange}>
+          <Select value={filters.propertyType || "any"} onValueChange={handlePropertyTypeChange}>
             <SelectTrigger id="property-type">
               <SelectValue placeholder="Any Type" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Any Type</SelectItem>
+              <SelectItem value="any">Any Type</SelectItem>
               {propertyTypes.map((type) => (
                 <SelectItem key={type} value={type}>
                   {type}
@@ -173,12 +173,12 @@ export default function PropertyFiltersComponent({ onFilterChange }: PropertyFil
 
         <div className="space-y-2">
           <Label htmlFor="status">Status</Label>
-          <Select value={filters.status || ""} onValueChange={handleStatusChange}>
+          <Select value={filters.status || "any"} onValueChange={handleStatusChange}>
             <SelectTrigger id="status">
               <SelectValue placeholder="Any Status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Any Status</SelectItem>
+              <SelectItem value="any">Any Status</SelectItem>
               {propertyStatus.map((status) => (
                 <SelectItem key={status} value={status}>
                   {status}
